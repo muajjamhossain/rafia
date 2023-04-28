@@ -67,9 +67,9 @@
     </div>
     <div class="col-md-6">
         <div class="mb-3">
-            <label for="doctors -text"
+            <label for="doctors-text"
                 class="col-form-label fw-semibold">Doctors </label>
-            <select class="form-select" name="doctor_id" id="doctors -text" required>
+            <select class="form-select" name="doctor_id" id="doctors-text" required>
                 <option selected disabled>Please Select</option>
             </select>
         </div>

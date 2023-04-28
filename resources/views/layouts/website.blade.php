@@ -311,7 +311,7 @@
                 type: 'get',
                 success: function(data) {
                     $('#speciality-text').append('<option value="'+data.speciality_id+'" selected>'+data.speciality_info.speciality_name+'</option>');
-                    $('#doctors -text').append('<option value="'+data.id+'" selected>'+data.name+'</option>');
+                    $('#doctors-text').append('<option value="'+data.id+'" selected>'+data.name+'</option>');
                 },
                 error: function(err){
                     if (err.status == 0) {
@@ -350,9 +350,9 @@
                 type: 'get',
                 success: function(data) {
 
-                    $('#doctors -text').empty().append('<option selected disabled>Please Select</option>');
+                    $('#doctors-text').empty().append('<option selected disabled>Please Select</option>');
                     data.forEach((item, index)=>{
-                        $('#doctors -text').append('<option value="'+item.id+'" >'+item.name+'</option>');
+                        $('#doctors-text').append('<option value="'+item.id+'" >'+item.name+'</option>');
                     })
 
                 },
