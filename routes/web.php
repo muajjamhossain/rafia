@@ -48,6 +48,7 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('website/contact', 'contact')->name('contact');
     Route::get('website/about', 'about')->name('about');
     Route::get('website/doctors', 'doctors')->name('doctors');
+    Route::post('website/doctors/search', 'searchDoctors')->name('search.doctors');
     Route::get('website/gallery', 'gallery')->name('gallery');
     Route::get('website/apoinment-modal', 'apoinmentModal')->name('apoinment-modal');
     Route::get('website/get-speciality', 'getSpeciality')->name('get-speciality');

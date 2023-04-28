@@ -25,7 +25,7 @@
           <div class="topbar">
               <div class="topbar-left">
                   <div class="text-center">
-                      <a href="{{url('dashboard')}}" class="logo"><i class="md md-terrain"></i> <span>Creative</span></a>
+                      <a href="{{url('dashboard')}}" class="logo"><i class="md md-terrain"></i> <span>Rafia</span></a>
                   </div>
               </div>
               <nav class="navbar navbar-default">
@@ -112,16 +112,11 @@
                   <div id="sidebar-menu">
                       <ul>
                           <li><a href="{{url('dashboard')}}" class="waves-effect"><i class="md md-home"></i><span>Dashboard </span></a></li>
-                         
+
                           <li><a href="{{url('dashboard/user')}}" class="waves-effect"><i class="md md-account-circle"></i><span>Users </span></a></li>
-                          
-                         
-                          {{-- <li><a href="#" class="waves-effect"><i class="md md-view-list"></i><span>Menu </span></a></li>
-                          
-                         
+                          <li><a href="#" class="waves-effect"><i class="md md-view-list"></i><span>Menu </span></a></li>
                           <li><a href="{{url('dashboard/banner')}}" class="waves-effect"><i class="md md-panorama"></i><span>Banner </span></a></li>
-                          
-                         
+
                           <li class="has_sub">
                               <a href="#" class="waves-effect"><i class="md md-settings"></i><span>Manage Website</span><span class="pull-right"><i class="md md-add"></i></span></a>
                               <ul class="list-unstyled">
@@ -131,9 +126,8 @@
                                   <li><a href="{{url('dashboard/manage/contact')}}">Contact Information</a></li>
                                   <li><a href="{{url('dashboard/manage/copyright')}}">Copyright</a></li>
                               </ul>
-                          </li> --}}
-                          
-                         
+                          </li>
+
                           <li class="has_sub">
                               <a href="#" class="waves-effect"><i class="md md-photo-library"></i><span>Gallery </span><span class="pull-right"><i class="md md-add"></i></span></a>
                               <ul class="list-unstyled">
@@ -153,9 +147,9 @@
                           <li><a href="{{url('dashboard/appointment')}}" class="waves-effect"><i class="md md-hotel"></i><span>Appointment</span></a></li>
                           <li><a href="{{url('dashboard/complain')}}" class="waves-effect"><i class="md md-mail"></i><span>Complain</span></a></li>
                           <li><a href="{{url('dashboard/contactus')}}" class="waves-effect"><i class="md md-contacts"></i><span>Contact Message </span></a></li>
-                          
-                         
-                          {{-- <li class="has_sub">
+
+
+                          <li class="has_sub">
                               <a href="#" class="waves-effect"><i class="md md-view-quilt"></i><span>Blog </span><span class="pull-right"><i class="md md-add"></i></span></a>
                               <ul class="list-unstyled">
                                   <li><a href="{{url('dashboard/blog/post/add')}}">Add Post</a></li>
@@ -164,41 +158,41 @@
                                   <li><a href="{{url('dashboard/blog/tag')}}">All Tag</a></li>
                               </ul>
                           </li>
-                          
-                         
+
+
                           <li class="has_sub">
                               <a href="#" class="waves-effect"><i class="md md-storage"></i><span>Visitor Information </span><span class="pull-right"><i class="md md-add"></i></span></a>
                               <ul class="list-unstyled">
                                   <li><a href="{{url('dashboard/newsletter/subscribe')}}">Newsletter Subscribe</a></li>
                               </ul>
                           </li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/service')}}" class="waves-effect"><i class="md md-local-attraction"></i><span>Our Services </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/video')}}" class="waves-effect"><i class="md md-play-circle-fill"></i><span>Videos </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/event')}}" class="waves-effect"><i class="md md-pages"></i><span>Events </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/team')}}" class="waves-effect"><i class="md md-account-box"></i><span>Our Team </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/partner')}}" class="waves-effect"><i class="md md-view-carousel"></i><span>Our Partners </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/client')}}" class="waves-effect"><i class="md md-stars"></i><span>Our Client </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/testimonial')}}" class="waves-effect"><i class="md md-local-library"></i><span>Client Testimonial </span></a></li>
-                          
-                         
+
+
                           <li><a href="{{url('dashboard/faq')}}" class="waves-effect"><i class="md md-receipt"></i><span>FAQ </span></a></li>
-                         
-                          <li><a href="{{url('dashboard/recycle')}}" class="waves-effect"><i class="md md-delete"></i><span>Recycle Bin </span></a></li> --}}
-                          
+
+                          <li><a href="{{url('dashboard/recycle')}}" class="waves-effect"><i class="md md-delete"></i><span>Recycle Bin </span></a></li>
+
                           <li><a href="{{url('/')}}" class="waves-effect" target="_blank"><i class="md md-public"></i><span>Live Site </span></a></li>
                           <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="waves-effect"><i class="md md-settings-power"></i><span>Logout</span></a></li>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

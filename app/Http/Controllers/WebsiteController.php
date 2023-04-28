@@ -44,7 +44,35 @@ class WebsiteController extends Controller
     }
 
     public function doctors()
-    {   $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+    {
+        $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+        return view('website.doctors', compact('allDoctor'));
+    }
+
+    public function searchDoctors(Request $request)
+    {
+
+        $allDoctor = '';
+        if($request->name != '' && $request->specialty !=''){
+            $Speciality = Speciality::where('speciality_status',1)->where('speciality_name',$request->specialty)->get();
+            if(count($Speciality) > 0){
+                $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
+            }else{
+
+                $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
+            }
+        }elseif($request->name != ''){
+            $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
+        }elseif($request->specialty != ''){
+            $Speciality = Speciality::where('speciality_status',1)->where('speciality_name',$request->specialty)->get();
+            if(count($Speciality) > 0){
+                $allDoctor = Doctor::with('SpecialityInfo')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
+            }else{
+                $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+            }
+        }else{
+            $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+        }
         return view('website.doctors', compact('allDoctor'));
     }
 

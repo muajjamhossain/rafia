@@ -211,8 +211,8 @@
                             supported by practice nurses, management and clerical
                             staff all providing high quality care to our patients. </p>
                         <div class="button-groups wow fadeInUp" data-wow-delay=".4s">
-                            <a href="#" class="btn-lg bg-primary-color">All Doctors</a>
-                            <a href="#" class="btn-lg">Todays Doctors</a>
+                            <a href="{{ url('website/doctors') }}" class="btn-lg bg-primary-color">All Doctors</a>
+                            <a href="{{ url('website/doctors') }}" class="btn-lg">Todays Doctors</a>
                         </div>
                     </div>
                 </div>

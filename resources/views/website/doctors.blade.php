@@ -10,16 +10,16 @@
                         <div class="find-doctors">
                             <div class="h2 fw-bold">Find Our <span class="primary-color">DOCTORS</span></div>
                             <hr>
-                            <form action="/" class="row justify-content-center">
+                            <form action="{{ url('website/doctors/search') }}" method="post" class="row justify-content-center">
+                                @csrf
                                 <div class="col-6">
                                     <input type="text" name="name" placeholder="Search by name">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" name="name" placeholder="Search by specialty ">
+                                    <input type="text" name="specialty" placeholder="Search by specialty ">
                                 </div>
                                 <div class="col-lg-6">
                                     <button type="submit">Search</button>
-
                                 </div>
                             </form>
                         </div>

@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafia Hospital - Pvt. Limited</title>
 
+    @php
+        $basic = App\Models\Basic::where('basic_status',1)->where('basic_id',1)->firstOrFail();
+        $social = App\Models\SocialMedia::where('sm_status',1)->where('sm_id',1)->firstOrFail();
+        $contact = App\Models\ContactInformation::where('cont_status',1)->where('cont_id',1)->firstOrFail();
+    @endphp
+
+    <title>{{ $basic->basic_title | $basic->basic_subtitle }}</title>
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/slick.css">
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/slick-theme.css">
@@ -18,12 +24,12 @@
     <header>
         <div class="top-bar">
             <div class="social-content">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="{{ $social->sm_facebook }}"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="{{ $social->sm_youtube }}"><i class="fa-brands fa-youtube"></i></a>
+                <a href="{{ $social->sm_linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <div class="welcome-title">
-                <p>Welcome to Rafia Hospital - Pvt. Limited</p>
+                <p>{{ $basic->basic_subtitle }}</p>
             </div>
             <div class="complain-submit">
                 <button data-bs-toggle="modal" data-bs-target="#complainModal">
@@ -60,9 +66,9 @@
                                     Hot line no.
                                 </div>
                                 <p>
-                                    <a href="tel:+8801716-624854">01716-624854</a>
+                                    <a href="tel:{{$contact->cont_phone1}}">{{$contact->cont_phone1}}</a>
                                     <br>
-                                    <a href="tel:+8801716-624854">01716-624854</a>
+                                    <a href="tel:{{$contact->cont_phone2}}">{{$contact->cont_phone2}}</a>
                                 </p>
                             </div>
                             <div class="header-address-item text-center wow fadeInUp" data-wow-delay=".3s">
@@ -83,7 +89,7 @@
                                     Email us
                                 </div>
                                 <p>
-                                    <a href="mailto:rafia.hospital2017@gmail.com">rafia.hospital2017@gmail.com</a>
+                                    <a href="mailto:{{$contact->cont_email1}}">{{$contact->cont_email1}}</a>
                                 </p>
                             </div>
                         </div>
@@ -93,8 +99,9 @@
         </div>
         <nav class="navbar navbar-expand-lg bg-white main-navbar" id="sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{ asset('assets/website') }}/assets/img/main-logo.svg" alt="logo">
+                    {{-- basic_logo basic_favicon basic_flogo --}}
                 </a>
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -171,16 +178,16 @@
                                     Ati Bazar, Keraniganj Model, <br> Dhaka-1312
                                     <br>
                                     <br>
-                                    Phone:<a href="tel:+8801716-624854"> 01716-624854</a>
+                                    Phone:<a href="tel:{{$contact->cont_phone1}}"> {{$contact->cont_phone1}}</a>
                                     <br>
                                     <br>
-                                    Email:<a href="mailto:rafia.hospital2017@gmail.com">
-                                        rafia.hospital2017@gmail.com</a>
+                                    Email:<a href="mailto:{{$contact->cont_email1}}">
+                                        {{$contact->cont_email1}}</a>
                                 </address>
                                 <div class="footer-social">
-                                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                    <a href="{{ $social->sm_facebook }}"><i class="fa-brands fa-facebook"></i></a>
+                                    <a href="{{ $social->sm_youtube }}"><i class="fa-brands fa-youtube"></i></a>
+                                    <a href="{{ $social->sm_linkedin }}"><i class="fa-brands fa-linkedin"></i></a>
                                 </div>
                             </div>
                             <div class="footer-widget-item">
@@ -198,8 +205,8 @@
                                     <li><a href="#">Our Branches</a></li>
                                     <li><a href="#">Our Services</a></li>
                                     <li><a href="#">Call for Appointment</a></li>
-                                    <li><a href="#">Find Doctors</a></li>
-                                    <li><a href="#">Gallery</a></li>
+                                    <li><a href="{{ url('website/doctors') }}">Find Doctors</a></li>
+                                    <li><a href="{{ url('website/gallery') }}">Gallery</a></li>
                                     <li><a href="#">Site Maps</a></li>
                                 </ul>
                             </div>
