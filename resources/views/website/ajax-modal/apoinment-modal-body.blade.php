@@ -1,6 +1,6 @@
 
 
-<form action="{{ url('website/apoinment/store') }}" method="post" class="px-3 row" id="newModalForm">
+<form action="{{ url('/website/apoinment/store') }}" method="post" class="px-3 row" id="newModalForm">
     @csrf
     <div class="col-md-6">
         <div class="mb-3">

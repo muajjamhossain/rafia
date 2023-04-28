@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
@@ -71,10 +72,11 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::post('website/apoinment/store', 'storeApoinment')->name('website.apoinment.store');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::group(['prefix' => 'dashboard'], function () {
+
+    Route::group(['prefix' => 'page', 'as' => 'page.', 'controller'=> HomeController::class], function () {
+        Route::get('/home', 'index')->name('home');
+    });
 
     Route::group(['prefix' => 'page', 'as' => 'page.', 'controller'=> PageController::class], function () {
         Route::get('', 'index')->name('');
