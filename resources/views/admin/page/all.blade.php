@@ -47,7 +47,7 @@
                                         <td>
                                             @php
                                                 $id=$data->page_id;
-                                                $totalContent=App\PageContent::where('pc_status',1)->where('page_id',$id)->count();
+                                                $totalContent=App\Models\PageContent::where('pc_status',1)->where('page_id',$id)->count();
                                             @endphp
                                             @if($totalContent<=9)
                                               0{{$totalContent}}

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Page;
-use App\PageContent;
+use App\Models\Page;
+use App\Models\PageContent;
 use Carbon\Carbon;
 use Session;
 

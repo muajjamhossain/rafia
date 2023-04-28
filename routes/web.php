@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\PageContentController;
 use App\Http\Controllers\SelfProfileController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\BlogCategoryController;
@@ -62,6 +64,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['prefix' => 'dashboard'], function () {
+
+    Route::group(['prefix' => 'page', 'as' => 'page.', 'controller'=> PageController::class], function () {
+        Route::get('', 'index')->name('');
+    });
+
+    Route::group(['prefix' => '/page', 'as' => 'page.', 'controller'=> PageContentController::class], function () {
+        Route::get('/content', 'index')->name('');
+        Route::get('/content/edit/{slug}', 'edit')->name('');
+        Route::post('/content/update', 'update')->name('');
+    });
 
     Route::group(['prefix' => 'profile', 'as' => 'profile.', 'controller'=> SelfProfileController::class], function () {
         Route::get('', 'index')->name('');
@@ -336,7 +348,6 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/pdf', 'pdf')->name('');
     });
 
-
     Route::group(['prefix' => 'recycle', 'as' => 'recycle.', 'controller'=> RecycleController::class], function () {
         Route::get('', 'index')->name('');
         Route::get('/user', 'user')->name('');
@@ -358,6 +369,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/blog/category', 'blog_category')->name('');
         Route::get('/blog/tag', 'tag')->name('');
     });
+
 
 });
 
