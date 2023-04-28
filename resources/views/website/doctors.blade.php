@@ -57,14 +57,14 @@
                                         <br>
                                         <b>Doctors Degree:</b> {{ $doctor->degree }}
                                         <br>
-                                        <b>Specialties:</b> {{ $doctor->SpecialityInfo->speciality_name }}
+                                        <b>Specialties:</b> {{ $doctor->speciality_info->speciality_name }}
                                         <br>
                                         <b>Branch:</b> {{ $doctor->branch }}
                                         <br>
                                         <b>Practice Days:</b> {{ $doctor->practice_days }}
                                     </p>
                                     <div class="get-btn">
-                                        <a href="#">Get appointment</a>
+                                        <a href="#" id="drAppointmentModalBtn" data-id="{{ $doctor->id }}">Get appointment</a>
                                     </div>
                                 </div>
                             </div>

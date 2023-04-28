@@ -49,7 +49,7 @@
                                         <td>{{$data->username}}</td>
                                         <td>{{$data->email}}</td>
                                         <td>{{$data->degree}}</td>
-                                        <td>{{$data->SpecialityInfo->speciality_name}}</td>
+                                        <td>{{$data->speciality_info->speciality_name}}</td>
                                         <td>{{$data->branch}}</td>
                                         <td>
                                             @if($data->photo!='')

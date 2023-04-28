@@ -18,7 +18,7 @@ class DoctorController extends Controller{
     }
 
     public function index(){
-        $all=Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+        $all=Doctor::with('speciality_info')->where('status',1)->orderBy('id','DESC')->get();
         return view('admin.doctor.all',compact('all'));
     }
 
@@ -29,12 +29,12 @@ class DoctorController extends Controller{
 
     public function edit($user){
         $allSpeciality=Speciality::where('speciality_status',1)->orderBy('speciality_id','DESC')->get();
-        $data=Doctor::with('SpecialityInfo')->where('status',1)->where('username',$user)->firstOrFail();
+        $data=Doctor::with('speciality_info')->where('status',1)->where('username',$user)->firstOrFail();
         return view('admin.doctor.edit',compact('data','allSpeciality'));
     }
 
     public function view($user){
-        $data=Doctor::with('SpecialityInfo')->where('status',1)->where('username',$user)->firstOrFail();
+        $data=Doctor::with('speciality_info')->where('status',1)->where('username',$user)->firstOrFail();
         return view('admin.doctor.view',compact('data'));
     }
 

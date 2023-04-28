@@ -26,7 +26,7 @@ class Appointment extends Model
         'status',
     ];
 
-    public function SpecialityInfo()
+    public function speciality_info()
     {
         return $this->belongsTo(Speciality::class, 'speciality_id', 'speciality_id');
     }

@@ -53,6 +53,7 @@ Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('website/apoinment-modal', 'apoinmentModal')->name('apoinment-modal');
     Route::get('website/get-speciality', 'getSpeciality')->name('get-speciality');
     Route::get('website/get-doctor/{id}', 'getDoctor')->name('get-doctor');
+    Route::get('website/find-doctor/{id}', 'findDoctor')->name('find-doctor');
     Route::post('website/complain/store', 'store')->name('website.complain.store');
     Route::post('website/apoinment/store', 'storeApoinment')->name('website.apoinment.store');
 });

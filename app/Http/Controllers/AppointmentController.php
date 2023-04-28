@@ -19,12 +19,12 @@ class AppointmentController extends Controller{
     }
 
     public function index(){
-        $all=Appointment::with('SpecialityInfo', 'doctorInfo')->where('status',1)->orderBy('id','DESC')->get();
+        $all=Appointment::with('speciality_info', 'doctorInfo')->where('status',1)->orderBy('id','DESC')->get();
         return view('admin.appointment.all',compact('all'));
     }
 
     public function view($slug){
-        $data=Appointment::with('SpecialityInfo', 'doctorInfo')->where('status',1)->where('slug',$slug)->firstOrFail();
+        $data=Appointment::with('speciality_info', 'doctorInfo')->where('status',1)->where('slug',$slug)->firstOrFail();
         return view('admin.appointment.view',compact('data'));
     }
 

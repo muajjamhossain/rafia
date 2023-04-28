@@ -68,7 +68,7 @@
                                         <td>{{$data->patient_status}}</td>
                                         <td>{{$data->schedule_date}}</td>
                                         <td>{{$data->schedule_time}}</td>
-                                        <td>{{$data->SpecialityInfo->speciality_name}}</td>
+                                        <td>{{$data->speciality_info->speciality_name}}</td>
                                         <td>{{$data->doctorInfo->name}}</td>
                                         <td>{{Str::words($data->description,5)}}</td>
                                         <td>{{$data->created_at->format('d-m-Y | h:i:s a')}}</td>

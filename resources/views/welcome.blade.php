@@ -142,9 +142,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="text">
-                        <p>Rafia Hospital Pvt. Limited. has a collection of the most advanced medical technologies.
-                            All the machineries which are being used here are designed with rigorous safety
-                            standards to aid in the diagnosis or treatment of medical problems.</p>
+                        <p>{{ $basic->basic_details }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 align-self-center">

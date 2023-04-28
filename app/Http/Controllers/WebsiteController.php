@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Basic;
 use App\Models\Doctor;
+use App\Models\Gallery;
 use App\Models\Contactus;
 use App\Models\Speciality;
 use App\Models\Appointment;
-use App\Models\Gallery;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +17,8 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        $basic = Basic::where('basic_status',1)->where('basic_id',1)->firstOrFail();
+        return view('welcome', compact('basic'));
     }
 
     public function apoinmentModal()
@@ -31,7 +33,11 @@ class WebsiteController extends Controller
 
     public function getDoctor($id)
     {
-        return $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->where('speciality_id', $id)->orderBy('id','DESC')->get();
+        return $allDoctor = Doctor::with('speciality_info')->where('status',1)->where('speciality_id', $id)->orderBy('id','DESC')->get();
+    }
+    public function findDoctor($id)
+    {
+        return $findDoctor = Doctor::with('speciality_info')->where('status',1)->where('id', $id)->firstOrFail();
     }
     public function contact()
     {
@@ -45,7 +51,7 @@ class WebsiteController extends Controller
 
     public function doctors()
     {
-        $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+        $allDoctor = Doctor::with('speciality_info')->where('status',1)->orderBy('id','DESC')->get();
         return view('website.doctors', compact('allDoctor'));
     }
 
@@ -56,22 +62,22 @@ class WebsiteController extends Controller
         if($request->name != '' && $request->specialty !=''){
             $Speciality = Speciality::where('speciality_status',1)->where('speciality_name',$request->specialty)->get();
             if(count($Speciality) > 0){
-                $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
+                $allDoctor = Doctor::with('speciality_info')->where('name','like','%'.$request->name.'%')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
             }else{
 
-                $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
+                $allDoctor = Doctor::with('speciality_info')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
             }
         }elseif($request->name != ''){
-            $allDoctor = Doctor::with('SpecialityInfo')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
+            $allDoctor = Doctor::with('speciality_info')->where('name','like','%'.$request->name.'%')->where('status',1)->orderBy('id','DESC')->get();
         }elseif($request->specialty != ''){
             $Speciality = Speciality::where('speciality_status',1)->where('speciality_name',$request->specialty)->get();
             if(count($Speciality) > 0){
-                $allDoctor = Doctor::with('SpecialityInfo')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
+                $allDoctor = Doctor::with('speciality_info')->where('speciality_id',$Speciality[0]->speciality_id)->where('status',1)->orderBy('id','DESC')->get();
             }else{
-                $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+                $allDoctor = Doctor::with('speciality_info')->where('status',1)->orderBy('id','DESC')->get();
             }
         }else{
-            $allDoctor = Doctor::with('SpecialityInfo')->where('status',1)->orderBy('id','DESC')->get();
+            $allDoctor = Doctor::with('speciality_info')->where('status',1)->orderBy('id','DESC')->get();
         }
         return view('website.doctors', compact('allDoctor'));
     }

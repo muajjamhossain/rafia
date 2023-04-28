@@ -10,6 +10,7 @@
         $basic = App\Models\Basic::where('basic_status',1)->where('basic_id',1)->firstOrFail();
         $social = App\Models\SocialMedia::where('sm_status',1)->where('sm_id',1)->firstOrFail();
         $contact = App\Models\ContactInformation::where('cont_status',1)->where('cont_id',1)->firstOrFail();
+        $copyright = App\Models\Copyright::where('copy_status',1)->where('copy_id',1)->firstOrFail();
     @endphp
 
     <title>{{ $basic->basic_title | $basic->basic_subtitle }}</title>
@@ -49,7 +50,7 @@
                             <i class="fa-solid fa-user-doctor"></i>
                             <span>Online Doctor <br> Appointment</span>
                         </div> --}}
-                        <div class="doctor-appointment d-flex align-items-center" id="test_btn">
+                        <div class="doctor-appointment d-flex align-items-center" id="appointmentModalBtn">
                             <i class="fa-solid fa-user-doctor"></i>
                             <span>Online Doctor <br> Appointment</span>
                         </div>
@@ -175,7 +176,7 @@
                             <div class="footer-widget-item">
                                 <div class="h4 title">Contacts</div>
                                 <address>
-                                    Ati Bazar, Keraniganj Model, <br> Dhaka-1312
+                                    {{$contact->cont_add1}} <br> {{$contact->cont_add2}}
                                     <br>
                                     <br>
                                     Phone:<a href="tel:{{$contact->cont_phone1}}"> {{$contact->cont_phone1}}</a>
@@ -226,7 +227,7 @@
                     <div class="col-lg-12">
                         <div class="copyright-content">
                             <div class="copy-right">
-                                <p>© Copyright 2019. Rafia Hospital Pvt. Limited</p>
+                                <p> {{$copyright->copy_title}}</p>
                             </div>
                             <div class="condition">
                                 <a href="#">Terms and Conditions</a>
@@ -235,6 +236,9 @@
                             </div>
                             <div class="views">
                                 <p>14432360 Total Views</p>
+                            </div>
+                            <div class="views">
+                                <p>Development .<a href="https://web.facebook.com/developer.imu" target="__blank"> Muajjam</a> </p>
                             </div>
                         </div>
                     </div>
@@ -251,13 +255,14 @@
 
 
     <script>
-        $(document).on('click', '#test_btn', function(e) {
+        // main appoinetment modal
+        $(document).on('click', '#appointmentModalBtn', function(e) {
             e.preventDefault();
             $('.data_preloader').show();
             // var url = $(this).attr('href');
 
             $.ajax({
-                url: 'website/apoinment-modal',
+                url: '/website/apoinment-modal',
                 type: 'get',
                 success: function(data) {
                     $('#appointmentModalBody').html(data);
@@ -275,15 +280,56 @@
             });
         });
 
+        // doctor wise appoinetment modal
+
+        $(document).on('click', '#drAppointmentModalBtn', function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                url: '/website/apoinment-modal',
+                type: 'get',
+                success: function(data) {
+                    $('#appointmentModalBody').html(data);
+                    find_doctor(id);
+                    $('#appointmentModal').modal('show');
+                    // console.log(data);
+                },
+                error: function(err){
+                    if (err.status == 0) {
+                        toastr.error('Net Connetion Error. Reload This Page.');
+                    }else{
+                        toastr.error('Server Error. Please contact to the support team.');
+                    }
+                }
+            });
+        });
+
+
+        function find_doctor(id){
+            $.ajax({
+                url: '/website/find-doctor/'+id,
+                type: 'get',
+                success: function(data) {
+                    $('#speciality-text').append('<option value="'+data.speciality_id+'" selected>'+data.speciality_info.speciality_name+'</option>');
+                    $('#doctors -text').append('<option value="'+data.id+'" selected>'+data.name+'</option>');
+                },
+                error: function(err){
+                    if (err.status == 0) {
+                        toastr.error('Net Connetion Error. Reload This Page.');
+                    }else{
+                        toastr.error('Server Error. Please contact to the support team.');
+                    }
+                }
+            });
+        }
 
         function get_speciality(){
             $.ajax({
-                url: 'website/get-speciality',
+                url: '/website/get-speciality',
                 type: 'get',
                 success: function(data) {
 
                     data.forEach((item, index)=>{
-                        console.log(index, item)
                         $('#speciality-text').append('<option value="'+item.speciality_id+'" >'+item.speciality_name+'</option>');
                     })
 
@@ -300,13 +346,12 @@
 
         $(document).on('change', '#speciality-text', function(e){
             $.ajax({
-                url: 'website/get-doctor/'+$(this).val(),
+                url: '/website/get-doctor/'+$(this).val(),
                 type: 'get',
                 success: function(data) {
 
                     $('#doctors -text').empty().append('<option selected disabled>Please Select</option>');
                     data.forEach((item, index)=>{
-                        console.log(index, item)
                         $('#doctors -text').append('<option value="'+item.id+'" >'+item.name+'</option>');
                     })
 
