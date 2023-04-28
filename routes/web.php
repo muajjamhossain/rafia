@@ -45,6 +45,17 @@ use App\Http\Controllers\NewsletterSubscribeController;
 // });
 
 
+Route::get('/clear-cache', function() {
+
+    Artisan::call('cache:clear');
+    \Artisan::call('route:clear');
+    \Artisan::call('config:clear');
+    \Artisan::call('view:clear');
+    // \Artisan::call('config:cache');
+    // \Artisan::call('optimize:clear');
+    return redirect()->back();
+});
+
 Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('/', 'index')->name('index');
     Route::get('website/contact', 'contact')->name('contact');
