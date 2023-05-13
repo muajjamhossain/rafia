@@ -40,6 +40,7 @@
             </div>
             <!-- Complain Submission -->
             @include('website.includes.complain-modal')
+            @include('website.includes.call-for-modal')
 
         </div>
         <div class="header-details">
@@ -60,7 +61,7 @@
                     </div>
                     <div class="col-lg-8 col-xl-7 ms-auto">
                         <div class="header-address-content">
-                            <div class="header-address-item text-center wow fadeInUp" data-wow-delay=".2s">
+                            <div class="text-center header-address-item wow fadeInUp" data-wow-delay=".2s">
                                 <div class="h4">
                                     <img src="{{ asset('assets/website') }}/assets/img/icon/call-icon.svg"
                                         alt="call icon">
@@ -72,7 +73,7 @@
                                     <a href="tel:{{$contact->cont_phone2}}">{{$contact->cont_phone2}}</a>
                                 </p>
                             </div>
-                            <div class="header-address-item text-center wow fadeInUp" data-wow-delay=".3s">
+                            <div class="text-center header-address-item wow fadeInUp" data-wow-delay=".3s">
                                 <div class="h4">
                                     <img src="{{ asset('assets/website') }}/assets/img/icon/time-icon.svg"
                                         alt="call icon">
@@ -83,7 +84,7 @@
                                     <br> 24/7
                                 </p>
                             </div>
-                            <div class="header-address-item text-center wow fadeInUp" data-wow-delay=".4s">
+                            <div class="text-center header-address-item wow fadeInUp" data-wow-delay=".4s">
                                 <div class="h4">
                                     <img src="{{ asset('assets/website') }}/assets/img/icon/email-icon.svg"
                                         alt="call icon">
@@ -98,13 +99,13 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg bg-white main-navbar" id="sticky-top">
+        <nav class="bg-white navbar navbar-expand-lg main-navbar" id="sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{ asset('assets/website') }}/assets/img/main-logo.svg" alt="logo">
                     {{-- basic_logo basic_favicon basic_flogo --}}
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                <button class="border-0 navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <i class="fa-solid fa-bars"></i>
                 </button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Basic;
 use App\Models\Doctor;
+use App\Models\Notice;
 use App\Models\Gallery;
 use App\Models\Contactus;
 use App\Models\Speciality;
@@ -18,7 +19,8 @@ class WebsiteController extends Controller
     public function index()
     {
         $basic = Basic::where('basic_status',1)->where('basic_id',1)->firstOrFail();
-        return view('welcome', compact('basic'));
+        $notice = Notice::where('notice_status',1)->where('notice_id',1)->firstOrFail();
+        return view('welcome', compact('basic', 'notice'));
     }
 
     public function apoinmentModal()

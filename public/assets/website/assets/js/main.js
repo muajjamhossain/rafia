@@ -15,6 +15,17 @@
     }
 
 
+    $('.notices-slid').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        focusOnSelect: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        arrows: false,
+
+    });
+
     $('.technology-slider').slick({
         infinite: true,
         slidesToShow: 3,
@@ -39,14 +50,14 @@
         ]
     });
 
-   
+
     var wow = new WOW({
         boxClass: 'wow',
         animateClass: 'animated',
         offset: 0,
         mobile: false,
     });
-    wow.init(); 
+    wow.init();
 
 
 })(jQuery);

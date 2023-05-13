@@ -23,7 +23,7 @@ class CreateBasicsTable extends Migration
             $table->string('basic_flogo',50);
             $table->integer('basic_status')->default(1);
             $table->softDeletes();
-$table->timestamps();
+            $table->timestamps();
         });
     }
 

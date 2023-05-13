@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
-use App\Models\Basic;
-use App\Models\SocialMedia;
-use App\Models\ContactInformation;
-use App\Models\Copyright;
-use Carbon\Carbon;
-use Session;
 use Image;
+use Session;
+use Carbon\Carbon;
+use App\Models\Basic;
+use App\Models\Notice;
+use App\Models\Copyright;
+use App\Models\SocialMedia;
+use Illuminate\Http\Request;
+use App\Models\ContactInformation;
 
 class ManageController extends Controller{
     public function __construct(){
@@ -70,6 +71,38 @@ class ManageController extends Controller{
         }else{
             Session::flash('error','value');
             return redirect('dashboard/manage/basic');
+        }
+    }
+
+    public function notice(){
+        $notice = Notice::where('notice_status',1)->where('notice_id',1)->firstOrFail();
+        return view('admin.manage.notice',compact('notice'));
+    }
+
+    public function update_notice(Request $request){
+        $update = Notice::where('notice_status',1)->where('notice_id',1)->update([
+            'notice_title_f_word'=>$request['ftitle'],
+            'notice_title_l_word'=>$request['ltitle'],
+            'notice_subtitle'=>$request['subtitle'],
+            'created_at'=>Carbon::now()->toDateTimeString()
+        ]);
+
+        if($request->hasFile('pic')){
+          $image=$request->file('pic');
+          $imageName='logo_'.time().'.'.$image->getClientOriginalExtension();
+          Image::make($image)->save(base_path('public/uploads/notice/'.$imageName));
+
+          Notice::where('notice_id',1)->update([
+              'notice_img'=>$imageName
+          ]);
+        }
+
+        if($update){
+            Session::flash('success','value');
+            return redirect('dashboard/manage/notice');
+        }else{
+            Session::flash('error','value');
+            return redirect('dashboard/manage/notice');
         }
     }
 

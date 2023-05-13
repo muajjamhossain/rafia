@@ -48,7 +48,7 @@ use App\Http\Controllers\NewsletterSubscribeController;
 
 Route::get('/clear-cache', function() {
 
-    Artisan::call('cache:clear');
+    \Artisan::call('cache:clear');
     \Artisan::call('route:clear');
     \Artisan::call('config:clear');
     \Artisan::call('view:clear');
@@ -156,6 +156,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'manage', 'as' => 'manage.', 'controller'=> ManageController::class], function () {
         Route::get('/basic', 'basic')->name('');
         Route::post('/basic/update', 'update_basic')->name('');
+        Route::get('/notice', 'notice')->name('');
+        Route::post('/notice/update', 'update_notice')->name('');
         Route::get('/social', 'social_media')->name('');
         Route::post('/social/update', 'update_social_media')->name('');
         Route::get('/contact', 'contact')->name('');

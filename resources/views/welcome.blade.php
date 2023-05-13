@@ -1,7 +1,6 @@
 @extends('layouts/website')
 
 @section('content')
-    
     <section class="hero-area">
         <div class="container">
             <div class="row">
@@ -23,7 +22,7 @@
     <section class="promo-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 mx-auto col-xl-10">
+                <div class="mx-auto col-lg-12 col-xl-10">
                     <div class="promo-content">
                         <div class="promo-item wow fadeInLeft" data-wow-delay=".2s">
                             <img src="{{ asset('assets/website') }}/assets/img/icon/call.svg" alt="icon">
@@ -41,12 +40,21 @@
                                 <br> Charges
                             </p>
                         </div>
-                        <div class="promo-item wow fadeInLeft" data-wow-delay=".5s">
+                        {{-- <div class="promo-item wow fadeInLeft" data-wow-delay=".5s">
                             <img src="{{ asset('assets/website') }}/assets/img/icon/plus.svg" alt="icon">
                             <p>Call for
                                 <br> Ambulance
                             </p>
-                        </div>
+                        </div> --}}
+
+                        <a class="promo-item wow fadeInLeft" data-wow-delay=".2s" data-bs-toggle="modal"
+                            data-bs-target="#callForAppointment">
+                            <img src="{{ asset('assets/website') }}/assets/img/icon/plus.svg" alt="icon">
+                            <p>Call for
+                                <br> Appointment
+                            </p>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -57,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title text-center">
+                    <div class="text-center section-title">
                         <div class="h2">Our <span class="primary-color">Services</span></div>
                         <br>
                         <p>Discover the difference in healthcare with our hospital's exceptional services,
@@ -102,7 +110,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="services-item wow fadeInUp" data-wow-delay=".2s">
-                            <img src="{{ asset('assets/website') }}/assets/img/physiotherapy-service.jpg" alt="services img">
+                            <img src="{{ asset('assets/website') }}/assets/img/physiotherapy-service.jpg"
+                                alt="services img">
                             <div class="services-text">
                                 <div class="title">Physiotherapy</div>
                             </div>
@@ -147,7 +156,7 @@
                 </div>
                 <div class="col-lg-3 align-self-center">
                     <div class="button">
-                        <a href="#" class="btn-lg">Know more details</a>
+                        <a href="{{ url('/website/about') }}" class="btn-lg">Know more details</a>
                     </div>
                 </div>
             </div>
@@ -163,12 +172,27 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="notices-content">
-                        <img src="{{ asset('assets/website') }}/assets/img/notices.svg" alt="notices">
-                        <div class="text">
-                            <div class="h5"><span class="primary-color">Coronavirus</span> in Bangladesh</div>
-                            <p>Bangladesh reports 11 more Covid-19 cases.
-                                The recovery rate increased to 98.27 %. February 28, 2023.</p>
+                    <div class="notices-slid">
+                        <div class="notices-content">
+                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
+                            <div class="text">
+                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
+                                <p>{{ $notice->notice_subtitle }}</p>
+                            </div>
+                        </div>
+                        <div class="notices-content">
+                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
+                            <div class="text">
+                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
+                                <p>{{ $notice->notice_subtitle }}</p>
+                            </div>
+                        </div>
+                        <div class="notices-content">
+                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
+                            <div class="text">
+                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
+                                <p>{{ $notice->notice_subtitle }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -241,21 +265,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="h2 section-head fw-semibold text-center">OUR <span
-                            class="primary-color">COMPANIES</span></div>
+                    <div class="text-center h2 section-head fw-semibold">OUR <span class="primary-color">COMPANIES</span>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="mx-auto col-lg-10">
                     <div class="row justify-content-center">
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
-                            <a href="#" class="companies-logo"><img src="{{ asset('assets/website') }}/assets/img/logo1.svg" alt="logo"></a>
+                            <a href="#" class="companies-logo"><img
+                                    src="{{ asset('assets/website') }}/assets/img/logo1.svg" alt="logo"></a>
                         </div>
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                            <a href="#" class="companies-logo"><img src="{{ asset('assets/website') }}/assets/img/logo2.svg" alt="logo"></a>
+                            <a href="#" class="companies-logo"><img
+                                    src="{{ asset('assets/website') }}/assets/img/logo2.svg" alt="logo"></a>
                         </div>
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                            <a href="#" class="companies-logo"><img src="{{ asset('assets/website') }}/assets/img/logo3.svg" alt="logo"></a>
+                            <a href="#" class="companies-logo"><img
+                                    src="{{ asset('assets/website') }}/assets/img/logo3.svg" alt="logo"></a>
                         </div>
                     </div>
                 </div>
@@ -263,12 +290,12 @@
         </div>
     </section>
 
-    <section class="partners-area mb-5">
+    <section class="mb-5 partners-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="mx-auto col-lg-10">
                     <hr>
-                    <div class="h2 section-head fw-semibold text-center">CORPORATE <span
+                    <div class="text-center h2 section-head fw-semibold">CORPORATE <span
                             class="primary-color">PARTNERS</span></div>
                     <div class="wow fadeInUp" data-wow-delay=".2s">
                         <img src="{{ asset('assets/website') }}/assets/img/corporate.png" alt="corporate">
@@ -283,7 +310,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="google-map text-center">
+                    <div class="text-center google-map">
                         <div class="h2">Google map location</div>
                         <div class="wow zoomIn" data-wow-delay=".2s">
                             <img src="{{ asset('assets/website') }}/assets/img/map.svg" alt="">
@@ -294,4 +321,3 @@
         </div>
     </div>
 @endsection
-

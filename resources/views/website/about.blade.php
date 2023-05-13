@@ -7,30 +7,31 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="about-nav justify-content-center">
-                         
+
                         <li data-bs-toggle="modal" data-bs-target="#ChairmanModal"><span>Message </span> from Chairman
                         </li>
                         <li data-bs-toggle="modal" data-bs-target="#directorModal"><span>Message </span> from Managing
                             Director</li>
-                        
+
                     </ul>
                 </div>
                 <!-- Managing Director -->
-                <div class="modal fade" id="directorModal" tabindex="-1" aria-labelledby="directorModalLabel"
+               <div class="modal fade" id="directorModal" tabindex="-1" aria-labelledby="directorModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content p-md-4">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             <div class="modal-body">
                                 <div class="d-md-flex d-grid align-items-center justify-content-center">
-                                    <div class="text-center ms-md-auto">
-                                        <div class="text-danger h3 fw-bold">Mohammad Wahiduzzaman</div>
-                                        <div class="text-primary h6 fw-semibold">Massage from Managing Director</div>
+                                    <div class="text-center">
+                                        <div class="text-center dd-img">
+                                            <img src="{{ asset('assets/website') }}/assets/img/director.jpg" alt="" height="150">
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-danger h3 fw-bold">Mohammad Wahiduzzaman</div>
+                                            <div class="text-primary h6 fw-semibold">Massage from Managing Director</div>
+                                        </div>
                                     </div>
-                                    <div class="dd-img ms-md-auto text-center">
-                                        <img src="{{ asset('assets/website') }}/assets/img/director.jpg" alt="" height="150">
-                                    </div>
-
                                 </div>
                                 <br><br>
                                 <p>
@@ -96,31 +97,34 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Managing Chairman -->
                 <div class="modal fade" id="ChairmanModal" tabindex="-1" aria-labelledby="ChairmanModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content p-md-4">
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button> 
+                                    aria-label="Close"></button>
                             <div class="modal-body">
                                 <div class="d-md-flex d-grid align-items-center justify-content-center">
-                                    <div class="text-center ms-md-auto">
-                                        <div class="text-danger h3 fw-bold">Dr. Helena Akter</div>
-                                        <div class="text-primary h6 fw-semibold">Massage from Chairman </div>
-                                    </div>
-                                    <div class="dd-img ms-md-auto text-center">
-                                        <img src="{{ asset('assets/website') }}/assets/img/chairman.jpg" alt="" height="150">
+                                    <div class="text-center">
+                                        <div class="dd-img text-center">
+                                            <img src="{{ asset('assets/website') }}/assets/img/chairman.jpg" alt="" height="150">
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-danger h3 fw-bold">Dr. Helena Akter</div>
+                                            <div class="text-primary h6 fw-semibold">Massage from Chairman </div>
+                                        </div>
                                     </div>
 
                                 </div>
                                 <br><br>
-                                <p> 
+                                <p>
                                     মধ্যম আয়ের বাংলাদেশের বিভিন্ন খাতে উন্নতির সাথে সাথে স্বাস্থ্যখাতেও বিশ্বের উন্নত দেশের সাথে তাল মিলিয়ে বাংলাদেশে ও উন্নত সেবার দ্বার প্রান্তে এসে পৌছে গেছে। একটা সময় গ্রামের মানুষ উন্নত চিকিৎসার জন্য ঢাকার কেন্দ্রস্থলে গিয়ে চিকিৎসা সুবিধা নিশ্চিত করত। দুর্ভাগ্যবশত, রোগের অসম্পূর্ণ নির্ণয় এবং উন্নত চিকিৎসার অভাবে সে সময় দেশের উল্লেখযোগ্য সংখ্যক মানুষ মারা যায়। দুর্ভোগ যখন সীমা ছাড়িয়ে গেল,  তখন আমরা ঢাকার কেরাণীগঞ্জের আটিবাজারে রাফিয়া হাসপাতাল (প্রাঃ) লি. প্রতিষ্ঠা করি।আমাদের লক্ষ্য ছিল দেশের গণমানুষের জন্য আধুনিক চিকিৎসা সুবিধা নিশ্চিত করা।
                                     <br><br>
                                     রাফিয়া হাসপাতাল (প্রাঃ) লি. 2007 সালের নভেম্বর মাসে তার যাত্রা শুরু করে এবং কিছু দিনের মধ্যে রিপোর্টের সঠিকতা এবং পরিসেবার গুণমানের কারণে রাফিয়া হাসপাতাল (প্রাঃ) লি.  সংশ্লিষ্ট ডাক্তার এবং আমাদের কেরাণীগঞ্জের মানুষের কাছে নির্ভরযোগ্যতা এবং আস্থার একটি প্রতীক হয়ে ওঠে।
                                     <br><br>
-                                    সংশ্লিষ্ট ডাক্তারদের চাহিদা মেটাতে আমরা অত্যন্ত নির্ভুলতার সাথে রোগীদের সম্পূর্ণ রোগ নির্ণয়ের জন্য একের পর এক অত্যাধুনিক প্রযুক্তির মেশিনারির আধুনিক সেটআপ নিশ্চিত করার চেষ্টা করে যাচ্ছি। 
+                                    সংশ্লিষ্ট ডাক্তারদের চাহিদা মেটাতে আমরা অত্যন্ত নির্ভুলতার সাথে রোগীদের সম্পূর্ণ রোগ নির্ণয়ের জন্য একের পর এক অত্যাধুনিক প্রযুক্তির মেশিনারির আধুনিক সেটআপ নিশ্চিত করার চেষ্টা করে যাচ্ছি।
                                     <br><br>
                                     রাফিয়া হাসপাতাল (প্রাঃ) লি. অল্প খরচে সু-চিকিৎসা প্রদানই আমাদের লক্ষ!
                                     <br><br><br>

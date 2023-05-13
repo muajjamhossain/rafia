@@ -232,7 +232,11 @@ body {
   background-color: var(--primary);
 }
 
-.top-bar .btn-close {
+.top-bar .modal-dialog {
+  max-width: 570px;
+}
+
+.btn-close {
   position: absolute;
   top: -23px;
   right: 0;
@@ -242,16 +246,12 @@ body {
 }
 
 @media (max-width: 767.98px) {
-  .top-bar .btn-close {
+  .btn-close {
     top: 5px;
     right: 5px;
     -webkit-filter: invert(0%) sepia(5%) saturate(7481%) hue-rotate(228deg) brightness(106%) contrast(106%);
             filter: invert(0%) sepia(5%) saturate(7481%) hue-rotate(228deg) brightness(106%) contrast(106%);
   }
-}
-
-.top-bar .modal-dialog {
-  max-width: 570px;
 }
 
 .header-details {
@@ -472,7 +472,7 @@ body {
 }
 
 .hero-area {
-  background-image: url("../img/banner.jpg");
+  background-image: url("../img/hero1.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -705,8 +705,6 @@ body {
 
 .notices-area .notices-content {
   background: #EEEEEE;
-  -webkit-box-shadow: var(--primary-box-shadow);
-          box-shadow: var(--primary-box-shadow);
   border-radius: 20px;
   padding: 18px;
   display: -webkit-box;
@@ -1702,5 +1700,73 @@ footer .copyright-content .condition a {
   font-weight: 700;
   font-size: 16px;
   color: var(--black);
+}
+
+.about-area .dd-img {
+  background: var(--white);
+  -webkit-box-shadow: var(--primary-box-shadow);
+          box-shadow: var(--primary-box-shadow);
+  padding: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-content {
+  background: #D1E2EB;
+  -webkit-box-shadow: var(--primary-box-shadow);
+          box-shadow: var(--primary-box-shadow);
+}
+
+.promo-modal li {
+  margin-left: 15px;
+  display: -ms-grid;
+  display: grid;
+}
+
+.promo-modal li .h5 {
+  margin-top: 30px;
+  color: var(--primary);
+}
+
+.promo-modal li .h5 b {
+  color: var(--black);
+}
+
+.promo-modal ol {
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.promo-modal ol li {
+  font-size: 17px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--black);
+  font-weight: 500;
+}
+
+.promo-modal ol li::before {
+  content: "\f111";
+  font-weight: 900;
+  font-family: "Font Awesome 6 free";
+  font-size: 6px;
+}
+
+.promo-modal ol li span {
+  display: block;
+  text-align: right;
+}
+
+.promo-content > a {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
