@@ -50,8 +50,7 @@
 
                     <ul class="float-right nav navbar-right list-inline">
                         <li class="d-none d-sm-block">
-                            <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i
-                                    class="md md-crop-free"></i></a>
+                            <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="md md-crop-free"></i></a>
                         </li>
                         <li class="dropdown d-none d-sm-block">
                             <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light"
@@ -136,15 +135,12 @@
                 </div>
                 <div id="sidebar-menu">
                     <ul>
-                        <li><a href="{{ url('dashboard') }}" class="waves-effect"><i
-                                    class="md md-home"></i><span>Dashboard </span></a></li>
+                        <li><a href="{{ url('dashboard') }}" class="waves-effect"><i class="md md-home"></i><span>Dashboard </span></a></li>
 
-                        <li><a href="{{ url('dashboard/user') }}" class="waves-effect"><i
-                                    class="md md-account-circle"></i><span>Users </span></a></li>
+                        <li><a href="{{ url('dashboard/user') }}" class="waves-effect"><i class="md md-account-circle"></i><span>Users </span></a></li>
                         <li><a href="#" class="waves-effect"><i class="md md-view-list"></i><span>Menu
                                 </span></a></li>
-                        <li><a href="{{ url('dashboard/banner') }}" class="waves-effect"><i
-                                    class="md md-panorama"></i><span>Banner </span></a></li>
+                        <li><a href="{{ url('dashboard/banner') }}" class="waves-effect"><i class="md md-panorama"></i><span>Banner </span></a></li>
 
                         <li class="has_sub">
                             <a href="#" class="waves-effect"><i class="md md-settings"></i><span>Manage
@@ -177,13 +173,10 @@
                                 <li><a href="{{ url('dashboard/speciality') }}">Speciality</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ url('dashboard/appointment') }}" class="waves-effect"><i
-                                    class="md md-hotel"></i><span>Appointment</span></a></li>
-                        <li><a href="{{ url('dashboard/complain') }}" class="waves-effect"><i
-                                    class="md md-mail"></i><span>Complain</span></a></li>
-                        <li><a href="{{ url('dashboard/contactus') }}" class="waves-effect"><i
-                                    class="md md-contacts"></i><span>Contact Message </span></a></li>
 
+                        <li><a href="{{ url('dashboard/appointment') }}" class="waves-effect"><i class="md md-hotel"></i><span>Appointment</span></a></li>
+                        <li><a href="{{ url('dashboard/complain') }}" class="waves-effect"><i class="md md-mail"></i><span>Complain</span></a></li>
+                        <li><a href="{{ url('dashboard/contactus') }}" class="waves-effect"><i class="md md-contacts"></i><span>Contact Message </span></a></li>
 
                         <li class="has_sub">
                             <a href="#" class="waves-effect"><i class="md md-view-quilt"></i><span>Blog
@@ -196,7 +189,6 @@
                             </ul>
                         </li>
 
-
                         <li class="has_sub">
                             <a href="#" class="waves-effect"><i class="md md-storage"></i><span>Visitor
                                     Information </span><span class="pull-right"><i class="md md-add"></i></span></a>
@@ -206,43 +198,30 @@
                             </ul>
                         </li>
 
-
-                        <li><a href="{{ url('dashboard/service') }}" class="waves-effect"><i
+                        <li><a href="{{ url('dashboard/service') }}" class=" ct"><i
                                     class="md md-local-attraction"></i><span>Our Services </span></a></li>
 
 
-                        <li><a href="{{ url('dashboard/video') }}" class="waves-effect"><i
+                        <li><a href="{{ url('dashboard/video') }}" class=" ct"><i
                                     class="md md-play-circle-fill"></i><span>Videos </span></a></li>
 
 
-                        <li><a href="{{ url('dashboard/event') }}" class="waves-effect"><i
+                        <li><a href="{{ url('dashboard/event') }}" class=" ct"><i
                                     class="md md-pages"></i><span>Events </span></a></li>
 
 
-                        <li><a href="{{ url('dashboard/team') }}" class="waves-effect"><i
+                        <li><a href="{{ url('dashboard/team') }}" class=" ct"><i
                                     class="md md-account-box"></i><span>Our Team </span></a></li>
 
 
-                        <li><a href="{{ url('dashboard/partner') }}" class="waves-effect"><i
-                                    class="md md-view-carousel"></i><span>Our Partners </span></a></li>
+                        <li><a href="{{ url('dashboard/partner') }}" class="waves-effect"><i class="md md-view-carousel"></i><span>Our Partners </span></a></li>
 
 
-                        <li><a href="{{ url('dashboard/client') }}" class="waves-effect"><i
-                                    class="md md-stars"></i><span>Our Client </span></a></li>
-
-
-                        <li><a href="{{ url('dashboard/testimonial') }}" class="waves-effect"><i
-                                    class="md md-local-library"></i><span>Client Testimonial </span></a></li>
-
-
-                        <li><a href="{{ url('dashboard/faq') }}" class="waves-effect"><i
-                                    class="md md-receipt"></i><span>FAQ </span></a></li>
-
-                        <li><a href="{{ url('dashboard/recycle') }}" class="waves-effect"><i
-                                    class="md md-delete"></i><span>Recycle Bin </span></a></li>
-
-                        <li><a href="{{ url('/') }}" class="waves-effect" target="_blank"><i
-                                    class="md md-public"></i><span>Live Site </span></a></li>
+                        <li><a href="{{ url('dashboard/client') }}" class="waves-effect"><i class="md md-stars"></i><span>Our Client </span></a></li>
+                        <li><a href="{{ url('dashboard/testimonial') }}" class="waves-effect"><i class="md md-local-library"></i><span>Client Testimonial </span></a></li>
+                        <li><a href="{{ url('dashboard/faq') }}" class="waves-effect"><i class="md md-receipt"></i><span>FAQ </span></a></li>
+                        <li><a href="{{ url('dashboard/recycle') }}" class="waves-effect"><i class="md md-delete"></i><span>Recycle Bin </span></a></li>
+                        <li><a href="{{ url('/') }}" class="waves-effect" target="_blank"><i class="md md-public"></i><span>Live Site </span></a></li>
                         <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                                 class="waves-effect"><i class="md md-settings-power"></i><span>Logout</span></a></li>
@@ -263,8 +242,15 @@
                 </div>
             </div>
             <footer class="footer">
-                Copyright © 2023 Dashboard |
-                <p>Development .<a href="https://web.facebook.com/developer.imu" target="__blank"> Muajjam Hossain</a> </p>
+                <div class="row">
+                    <div class="col-md-8">
+                        Copyright © 2023 Dashboard |
+                    </div>
+                    <div class="col-md-4">
+                        <p>Development .<a href="https://web.facebook.com/developer.imu" target="__blank"> Muajjam Hossain</a> </p>
+                    </div>
+                </div>
+
             </footer>
         </div>
     </div>
