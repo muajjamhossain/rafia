@@ -181,4 +181,24 @@ class DoctorController extends Controller{
           return redirect('dashboard/recycle/doctor');
         }
     }
+
+    public function allprint(){
+        $all = Doctor::with('speciality_info')->where('status',1)->orderBy('id','DESC')->get();
+        return view('admin.doctor.allprint',compact('all'));
+    }
+
+    public function print($slug){
+        $data=Doctor::where('status',1)->where('slug',$slug)->firstOrFail();
+        return view('admin.doctor.print',compact('data'));
+    }
+
+    public function export(){
+        return Excel::download(new ContactExport, 'doctor.xlsx');
+    }
+
+    public function pdf(){
+        $all=Doctor::where('status',1)->orderBy('id','DESC')->get();
+        $pdf=PDF::loadView('admin.doctor.pdf', compact('all'));
+        return $pdf->download('doctor.pdf');
+    }
 }

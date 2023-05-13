@@ -13,6 +13,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ManageController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProfileController;
@@ -124,6 +125,24 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::post('/softdelete', 'softdelete')->name('');
         Route::post('/restore', 'restore')->name('');
         Route::post('/delete', 'delete')->name('');
+        Route::get('/allprint', 'allprint')->name('');
+        Route::get('/print/{slug}', 'print')->name('');
+        Route::get('/excel', 'export')->name('');
+        Route::get('/pdf', 'pdf')->name('');
+    });
+
+
+    Route::group(['prefix' => 'notice', 'as' => 'notice.', 'controller'=> NoticeController::class], function () {
+        Route::get('/contact', 'contact')->name('contact');
+        Route::get('', 'index')->name('');
+        Route::get('/add', 'add')->name('');
+        Route::get('/edit/{notice}', 'edit')->name('');
+        Route::get('/view/{notice}', 'view')->name('');
+        Route::post('/submit', 'insert')->name('');
+        Route::post('/update/{id}', 'update')->name('');
+        Route::post('/softdelete', 'softdelete')->name('');
+        Route::post('/restore', 'restore')->name('');
+        Route::post('/delete', 'delete')->name('');
     });
 
     Route::group(['prefix' => 'user', 'as' => 'user.', 'controller'=> UserController::class], function () {
@@ -156,8 +175,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'manage', 'as' => 'manage.', 'controller'=> ManageController::class], function () {
         Route::get('/basic', 'basic')->name('');
         Route::post('/basic/update', 'update_basic')->name('');
-        Route::get('/notice', 'notice')->name('');
-        Route::post('/notice/update', 'update_notice')->name('');
+        // Route::get('/notice', 'notice')->name('');
+        // Route::post('/notice/update', 'update_notice')->name('');
         Route::get('/social', 'social_media')->name('');
         Route::post('/social/update', 'update_social_media')->name('');
         Route::get('/contact', 'contact')->name('');

@@ -173,27 +173,17 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="notices-slid">
-                        <div class="notices-content">
-                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
-                            <div class="text">
-                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
-                                <p>{{ $notice->notice_subtitle }}</p>
+
+                        @foreach ($allNotice as $notice)
+                            <div class="notices-content">
+                                <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
+                                <div class="text">
+                                    <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
+                                    <p>{{ $notice->notice_subtitle }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="notices-content">
-                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
-                            <div class="text">
-                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
-                                <p>{{ $notice->notice_subtitle }}</p>
-                            </div>
-                        </div>
-                        <div class="notices-content">
-                            <img src="{{ asset('uploads/notice/'.$notice->notice_img) }}" alt="notices">
-                            <div class="text">
-                                <div class="h5"><span class="primary-color">{{ $notice->notice_title_f_word }}</span> {{ $notice->notice_title_l_word }}</div>
-                                <p>{{ $notice->notice_subtitle }}</p>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

@@ -147,7 +147,7 @@
                                     Website</span><span class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="{{ url('dashboard/manage/basic') }}">Basic Information</a></li>
-                                <li><a href="{{ url('dashboard/manage/notice') }}">Notice</a></li>
+                                {{-- <li><a href="{{ url('dashboard/manage/notice') }}">Notice</a></li> --}}
                                 <li><a href="{{ url('dashboard/manage/social') }}">Social Media</a></li>
                                 <li><a href="{{ url('dashboard/page/content') }}">All Page Content</a></li>
                                 <li><a href="{{ url('dashboard/manage/contact') }}">Contact Information</a></li>
@@ -171,6 +171,15 @@
                                 <li><a href="{{ url('dashboard/doctor/add') }}">Doctors Add</a></li>
                                 <li><a href="{{ url('dashboard/doctor') }}">All Doctors</a></li>
                                 <li><a href="{{ url('dashboard/speciality') }}">Speciality</a></li>
+                            </ul>
+                        </li>
+
+                         <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="md md-local-hospital"></i><span>Notice
+                                </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('dashboard/notice/add') }}">Notice Add</a></li>
+                                <li><a href="{{ url('dashboard/notice') }}">All Notice</a></li>
                             </ul>
                         </li>
 

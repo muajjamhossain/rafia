@@ -17,7 +17,7 @@
                     <div class="col-md-8">
                         <h3 class="card-title card_top_title"><i class="fa fa-gg-circle"></i> All Appointment</h3>
                     </div>
-                    <div class="col-md-4 text-right">
+                    <div class="text-right col-md-4">
                         <a href="{{url('dashboard/appointment')}}" class="btn btn-md btn-primary waves-effect card_top_button"><i class="fa fa-th"></i> Demo</a>
                     </div>
                     <div class="clearfix"></div>
@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            <table id="alltableinfo" class="table table-bordered custom_table mb-0">
+                            <table id="alltableinfo" class="table mb-0 table-bordered custom_table">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -68,8 +68,8 @@
                                         <td>{{$data->patient_status}}</td>
                                         <td>{{$data->schedule_date}}</td>
                                         <td>{{$data->schedule_time}}</td>
-                                        <td>{{$data->speciality_info->speciality_name}}</td>
-                                        <td>{{$data->doctorInfo->name}}</td>
+                                        <td>{{$data->speciality_info->speciality_name ?? ""}}</td>
+                                        <td>{{$data->doctorInfo->name ?? ""}}</td>
                                         <td>{{Str::words($data->description,5)}}</td>
                                         <td>{{$data->created_at->format('d-m-Y | h:i:s a')}}</td>
                                         <td>
@@ -95,18 +95,18 @@
 <!--Delete Modal Information-->
 <div id="softDelModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
     <div class="modal-dialog">
-        <div class="modal-content p-0 b-0">
+        <div class="p-0 modal-content b-0">
             <form method="post" action="{{url('dashboard/appointment/softdelete')}}">
               @csrf
-              <div class="card mb-0">
+              <div class="mb-0 card">
                 <div class="card-header">
-                    <h3 class="card-title float-left"><i class="fa fa-gg-circle"></i> Confirm Message</h3>
+                    <h3 class="float-left card-title"><i class="fa fa-gg-circle"></i> Confirm Message</h3>
                 </div>
                 <div class="card-body modal_card">
                   Are you sure you want to delete?
                   <input type="hidden" id="modal_id" name="modal_id">
                 </div>
-                <div class="card-footer text-right">
+                <div class="text-right card-footer">
                     <button type="submit" class="btn btn-sm btn-dark waves-effect">Confirm</button>
                     <button type="button" class="btn btn-sm btn-danger waves-effect" data-dismiss="modal">Close</button>
                 </div>

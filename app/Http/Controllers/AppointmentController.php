@@ -73,7 +73,7 @@ class AppointmentController extends Controller{
     }
 
     public function allprint(){
-        $all=Appointment::where('status',1)->orderBy('id','DESC')->get();
+        $all = Appointment::with('speciality_info', 'doctorInfo')->where('status',1)->orderBy('id','DESC')->get();
         return view('admin.appointment.allprint',compact('all'));
     }
 

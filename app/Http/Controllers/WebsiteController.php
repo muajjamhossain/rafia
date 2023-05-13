@@ -19,8 +19,8 @@ class WebsiteController extends Controller
     public function index()
     {
         $basic = Basic::where('basic_status',1)->where('basic_id',1)->firstOrFail();
-        $notice = Notice::where('notice_status',1)->where('notice_id',1)->firstOrFail();
-        return view('welcome', compact('basic', 'notice'));
+        $allNotice = Notice::where('notice_status',1)->orderBy('notice_id','DESC')->get();
+        return view('welcome', compact('basic', 'allNotice'));
     }
 
     public function apoinmentModal()

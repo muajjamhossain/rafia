@@ -79,32 +79,32 @@ class ManageController extends Controller{
         return view('admin.manage.notice',compact('notice'));
     }
 
-    public function update_notice(Request $request){
-        $update = Notice::where('notice_status',1)->where('notice_id',1)->update([
-            'notice_title_f_word'=>$request['ftitle'],
-            'notice_title_l_word'=>$request['ltitle'],
-            'notice_subtitle'=>$request['subtitle'],
-            'created_at'=>Carbon::now()->toDateTimeString()
-        ]);
+    // public function update_notice(Request $request){
+    //     $update = Notice::where('notice_status',1)->where('notice_id',1)->update([
+    //         'notice_title_f_word'=>$request['ftitle'],
+    //         'notice_title_l_word'=>$request['ltitle'],
+    //         'notice_subtitle'=>$request['subtitle'],
+    //         'created_at'=>Carbon::now()->toDateTimeString()
+    //     ]);
 
-        if($request->hasFile('pic')){
-          $image=$request->file('pic');
-          $imageName='logo_'.time().'.'.$image->getClientOriginalExtension();
-          Image::make($image)->save(base_path('public/uploads/notice/'.$imageName));
+    //     if($request->hasFile('pic')){
+    //       $image=$request->file('pic');
+    //       $imageName='logo_'.time().'.'.$image->getClientOriginalExtension();
+    //       Image::make($image)->save(base_path('public/uploads/notice/'.$imageName));
 
-          Notice::where('notice_id',1)->update([
-              'notice_img'=>$imageName
-          ]);
-        }
+    //       Notice::where('notice_id',1)->update([
+    //           'notice_img'=>$imageName
+    //       ]);
+    //     }
 
-        if($update){
-            Session::flash('success','value');
-            return redirect('dashboard/manage/notice');
-        }else{
-            Session::flash('error','value');
-            return redirect('dashboard/manage/notice');
-        }
-    }
+    //     if($update){
+    //         Session::flash('success','value');
+    //         return redirect('dashboard/manage/notice');
+    //     }else{
+    //         Session::flash('error','value');
+    //         return redirect('dashboard/manage/notice');
+    //     }
+    // }
 
     public function social_media(){
         $social=SocialMedia::where('sm_status',1)->where('sm_id',1)->firstOrFail();

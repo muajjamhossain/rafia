@@ -49,28 +49,28 @@
   </head>
   <body>
       <div class="wrapper">
-          <h2 class="title">Contact Us Information</h2>
+          <h2 class="title">Doctor Information</h2>
           <hr>
           <table class="table table-bordered table-striped table_data">
               <thead>
               <tr>
                     <th>Name</th>
                     <th>Phone</th>
+                    <th>Username</th>
                     <th>Email</th>
-                    <th>Type</th>
-                    <th>Message</th>
-                    <th>Time</th>
+                    <th>Degree</th>
+                    <th>specialties</th>
               </tr>
               </thead>
               <tbody>
               @foreach($all as $data)
                   <tr>
-                        <td>{{$data->conus_name}}</td>
-                        <td>{{$data->conus_phone}}</td>
-                        <td>{{$data->conus_email}}</td>
-                        <td>{{Str::words($data->conus_sub,5)}}</td>
-                        <td>{{Str::words($data->conus_mess,7)}}</td>
-                        <td>{{$data->created_at->format('d-m-Y | h:i:s a')}}</td>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->phone}}</td>
+                        <td>{{$data->username}}</td>
+                        <td>{{$data->email}}</td>
+                        <td>{{$data->degree}}</td>
+                        <td>{{$data->speciality_info->speciality_name}}</td>
                   </tr>
               @endforeach
               </tbody>
