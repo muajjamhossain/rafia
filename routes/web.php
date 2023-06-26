@@ -34,6 +34,10 @@ use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\NewsletterSubscribeController;
 
 
+use SRC\PHPMailer;
+use SRC\SMTP;
+// use src\Exception;
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -60,6 +64,90 @@ Route::get('/clear-cache', function() {
 
 Route::group(['controller'=> WebsiteController::class], function () {
     Route::get('/', 'index')->name('index');
+
+
+
+    // Route::get('/', function(){
+
+
+    //     require '../src/PHPMailer.php';
+    //     require '../src/SMTP.php';
+    //     require '../src/Exception.php';
+
+    //     $mail = new PHPMailer(true); // Passing true enables exceptions
+
+    //     $mail->isSMTP(); // Set mailer to use SMTP
+    //     $mail->Host = 'smtp.gmail.com';
+    //     $mail->SMTPAuth = true; // Enable SMTP authentication
+    //     $mail->Username = 'php1206724@gmail.com';
+    //     $mail->Password = 'mttstsebqfvnfjkx';
+    //     $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
+    //     $mail->Port = 587; // TCP port to connect to
+
+
+
+    //     $senderEmail = 'php1206724@gmail.com';
+    //     $subject = 'Your Subject';
+
+    //     $mail->setFrom($senderEmail);
+    //     $mail->Subject = $subject;
+    //     $mail->isHTML(true); // Set email format to HTML
+
+    //     $recipients =  ['kan614760@gmail.com', 'zakircseiu@gmail.com', 'muajjam.imu@gmail.com'];
+
+    //     foreach ($recipients as $recipient) {
+    //         $to = $recipient;
+    //         $message = "Hello, $recipient! This is the content of the email."; // Customize the email content
+
+    //         $mail->addAddress($to);
+    //         $mail->Body = $message;
+
+    //         try {
+    //             $mail->send();
+    //             echo "Email sent to $to<br>";
+    //         } catch (Exception $e) {
+    //             echo "Failed to send email to $to. Error: {$mail->ErrorInfo}<br>";
+    //         }
+
+    //         $mail->clearAddresses();
+    //     }
+
+
+
+
+
+    //     // $smtpHost = 'smtp.gmail.com';
+    //     // $smtpUsername = 'php1206724@gmail.com';
+    //     // $smtpPassword = 'mttstsebqfvnfjkx';
+    //     // $smtpPort = 587; // Change the port if required
+
+    //     // ini_set('SMTP', $smtpHost);
+    //     // ini_set('smtp_port', $smtpPort);
+    //     // ini_set('username', $smtpUsername);
+    //     // ini_set('password', $smtpPassword);
+
+    //     // $senderEmail = 'php1206724@gmail.com';
+    //     // $subject = 'Test';
+    //     // $headers = "From: $senderEmail\r\n";
+    //     // $headers .= "Reply-To: $senderEmail\r\n";
+    //     // $headers .= "MIME-Version: 1.0\r\n";
+    //     // $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+    //     // $recipients = ['kan614760@gmail.com', 'zakircseiu@gmail.com', 'muajjam.imu@gmail.com'];
+    //     // foreach ($recipients as $recipient) {
+    //     //     $to = $recipient;
+    //     //     $message = "Hello, $recipient! This is the content of the email.";
+
+    //     //     if (mail($to, $subject, $message, $headers)) {
+    //     //         echo "Email sent to $to<br>";
+    //     //     } else {
+    //     //         echo "Failed to send email to $to<br>";
+    //     //     }
+    //     // }
+
+    // });
+
+
     Route::get('website/contact', 'contact')->name('contact');
     Route::get('website/about', 'about')->name('about');
     Route::get('website/doctors', 'doctors')->name('doctors');

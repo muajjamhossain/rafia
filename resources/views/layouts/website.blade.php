@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/slick.css">
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/slick-theme.css">
     <link rel="stylesheet" href="{{ asset('assets/website') }}/assets/css/style.css">
+    @stack('myCustomStyle')
 </head>
 
 <body>
@@ -250,18 +251,17 @@
 
     <script src="{{ asset('assets/website') }}/assets/js/jquery-3.6.4.min.js"></script>
     <script src="{{ asset('assets/website') }}/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/website') }}/assets/js/slick.min.js"></script>
     <script src="{{ asset('assets/website') }}/assets/js/wow.min.js"></script>
     <script src="{{ asset('assets/website') }}/assets/js/main.js"></script>
-
+    @stack('myCustomScripts')
 
     <script>
         // main appoinetment modal
         $(document).on('click', '#appointmentModalBtn', function(e) {
             e.preventDefault();
             $('.data_preloader').show();
-            // var url = $(this).attr('href');
-
             $.ajax({
                 url: '/website/apoinment-modal',
                 type: 'get',
